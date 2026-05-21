@@ -32,9 +32,16 @@ const initialData: FormData = {
 
 function loadSavedData(): FormData {
   try {
+    const today = new Date().toISOString().split('T')[0];
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return initialData;
-    return { ...initialData, ...JSON.parse(raw) };
+    const saved = raw ? JSON.parse(raw) : {};
+    return {
+      ...initialData,
+      ...saved,
+      noticeDate: today,
+      startDateTime: `${today}T09:00`,
+      endDateTime: `${today}T15:00`,
+    };
   } catch {
     return initialData;
   }
