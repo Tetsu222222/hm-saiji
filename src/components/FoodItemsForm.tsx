@@ -31,8 +31,8 @@ export default function FoodItemsForm({ items, errors, onChange }: Props) {
 
       <div className="food-items-header">
         <span className="food-col-no">番号</span>
-        <span className="food-col-name">食品名</span>
-        <span className="food-col-qty">予定食数</span>
+        <span className="food-col-name">食品名 <span className="required">*</span></span>
+        <span className="food-col-qty">予定食数 <span className="required">*</span></span>
         <span className="food-col-action"></span>
       </div>
 

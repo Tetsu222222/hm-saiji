@@ -182,7 +182,7 @@ export default function SaijiForm() {
         </div>
 
         <div className="field-row">
-          <label className="field-label" htmlFor="representativeTitle">代表者役職</label>
+          <label className="field-label" htmlFor="representativeTitle">代表者役職 <span className="required">*</span></label>
           <div className="field-input">
             <input
               id="representativeTitle"
@@ -190,12 +190,14 @@ export default function SaijiForm() {
               value={data.representativeTitle}
               onChange={(e) => set('representativeTitle', e.target.value)}
               placeholder="代表取締役（法人の場合）"
+              className={errors['representativeTitle'] ? 'input-error' : ''}
             />
+            {errors['representativeTitle'] && <p className="field-error">{errors['representativeTitle']}</p>}
           </div>
         </div>
 
         <div className="field-row">
-          <label className="field-label" htmlFor="representativeName">代表者名</label>
+          <label className="field-label" htmlFor="representativeName">代表者名 <span className="required">*</span></label>
           <div className="field-input">
             <input
               id="representativeName"
@@ -203,7 +205,9 @@ export default function SaijiForm() {
               value={data.representativeName}
               onChange={(e) => set('representativeName', e.target.value)}
               placeholder="氏名（法人の場合）"
+              className={errors['representativeName'] ? 'input-error' : ''}
             />
+            {errors['representativeName'] && <p className="field-error">{errors['representativeName']}</p>}
           </div>
         </div>
       </section>
@@ -243,7 +247,7 @@ export default function SaijiForm() {
         </div>
 
         <div className="field-row">
-          <label className="field-label" htmlFor="foodSummary">取扱食品</label>
+          <label className="field-label" htmlFor="foodSummary">取扱食品 <span className="required">*</span></label>
           <div className="field-input">
             <input
               id="foodSummary"
@@ -251,7 +255,9 @@ export default function SaijiForm() {
               value={data.foodSummary}
               onChange={(e) => set('foodSummary', e.target.value)}
               placeholder="裏面一覧表のとおり"
+              className={errors['foodSummary'] ? 'input-error' : ''}
             />
+            {errors['foodSummary'] && <p className="field-error">{errors['foodSummary']}</p>}
           </div>
         </div>
       </section>
