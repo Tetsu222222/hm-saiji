@@ -41,6 +41,7 @@ function loadSavedData(): FormData {
       noticeDate: today,
       startDateTime: `${today}T09:00`,
       endDateTime: `${today}T15:00`,
+      foodItems: initialData.foodItems,
     };
   } catch {
     return initialData;
@@ -66,6 +67,30 @@ export default function SaijiForm() {
         return next;
       });
     }
+  };
+
+  const handleFillDefaults = () => {
+    setData((prev) => {
+      const next = {
+        ...prev,
+        applicantAddress: initialData.applicantAddress,
+        companyName: initialData.companyName,
+        representativeTitle: initialData.representativeTitle,
+        representativeName: initialData.representativeName,
+        eventPlace: initialData.eventPlace,
+        eventName: initialData.eventName,
+        foodSummary: initialData.foodSummary,
+        managerName: initialData.managerName,
+        managerAddress: initialData.managerAddress,
+        managerTel: initialData.managerTel,
+        confirmNotes: initialData.confirmNotes,
+        listNo: initialData.listNo,
+        fontFamily: initialData.fontFamily,
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      return next;
+    });
+    setErrors({});
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -98,6 +123,12 @@ export default function SaijiForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate>
+
+      <div className="form-defaults-bar">
+        <button type="button" className="btn-defaults" onClick={handleFillDefaults}>
+          デフォルト値を入力
+        </button>
+      </div>
 
       {/* フォント選択 */}
       <section className="form-section">
