@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.wrangler/
+
+# 生成済みPDF・サンプル（テンプレートは除く）
+red.pdf
+sample20251219.pdf
+saiji_requirements.md
+催事届_*.pdf
+
+# エディタ
+.vscode/
+*.local
