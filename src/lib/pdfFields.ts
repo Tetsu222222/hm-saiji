@@ -13,8 +13,8 @@ export const PDF_TEXT_STYLE = {
 } as const;
 
 export const FONT_PATHS: Record<string, string> = {
-  gothic: '/fonts/NotoSansJP-Regular.otf',
-  mincho: '/fonts/NotoSerifJP-Regular.otf',
+  gothic: '/fonts/NotoSansJP-Regular.ttf',
+  mincho: '/fonts/NotoSerifJP-Regular.ttf',
 };
 
 export const saijiFieldMap = {
